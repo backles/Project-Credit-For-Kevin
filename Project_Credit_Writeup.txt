@@ -1,0 +1,124 @@
+Braden Ackles (Perry)
+Tail Light project write up
+Using MRAA, UPM, and APA102 light strip
+
+Weekly break down
+	Week one:
+		Progress:
+			Researched Raspberium commands to install and work with Raspberry PI
+			Got Raspberry PI and led strip
+			Installed Raspberium
+			Worked on installing MRAA
+		Problems:
+			Dependencies with Raspberium caused problems
+			
+	Week two:
+		Progress:
+			Got Power brick from McGrath
+			Reinstalled Raspberium with different image to see if fixed problem (didn't)
+			Wrote outline code and model for the input and outputs
+		Problems:
+			Struggled with dependencies still
+			Mainly SWIG, version 3.0.5 (required) could not be found or insalled on raspberry PI
+			Only version avaliable was 2.7
+			
+	Week three:
+		Progress:
+			Continued fixing dependencies issues (no luck)
+			Researched how to get the state of a GPIO pin and the GPIO pin layout for raspberry PI
+			Wrote function to check to see what pins had a signal and what LED configuration would be needed
+		Problems:
+			Had trouble writing GPIO pin code was because the example I found didn't make it clear how to do multiple
+			When in reality its super easy to read from multiple.
+			Still Struggling with Raspberium
+			Dependencies make no sense and is not avaliable
+			Cannot compile until dependencies are avaliable
+			
+	Week four:
+		Progress:
+			Researched MRAA and UPM more
+			Wrote all the functions to set the LED colors properly
+				Used https://iotdk.intel.com/docs/master/upm/node/classes/apa102.html#method_setAllLeds
+				Made it super easy to write
+		Problems:
+			No new problems this week
+			
+	Week five:
+		Progress:
+			Asked Kevin for help with raspberium not working, he said to try ubuntu for more support with dependencies
+			Cleaned up code and rewrote parts of functions with new knowledge from research
+		Problems:
+			No new problems till next week
+	
+	Week six:
+		Progress:
+			Downloaded and prepared for ubuntu installation didn't get to till next week
+			Figure out how to set up GPIO pins in python for the direction (i.e. input or output)
+			Wrote opening part of file to declare all the input GPIO pins
+			Realised that the SPIbus might mean i don't need to declare output pins for the LED strip
+		Problems:
+			After reading over ubuntu documenation, this might be a mistake
+			Ubuntu core appears to be in development stages and has lots of problems.
+	
+	Week seven
+		Week of Engineer EXPO focused on capstone
+	
+	Week eight:
+		Progress:
+			Worked on installing Ubuntu network issues with installation
+				Was a reported bug fixed next week
+		Problems:
+			Ubuntu put up a challange but finally installed properlly
+			
+	Week nine:
+		Progress:
+			Tried installing ubuntu core again
+			Got it installed and able to ssh
+			Worked on code Wrote prioritier function
+		Problems:
+			Unable to login in with SSH and that is the only way to access it
+			Confirmed my password was not wrong and the private key was correct still unable to access machine
+	
+	Week ten:
+		Progress:
+			Finished writing code
+			Figured out a better format for clearing te previous light arrangement that is now
+				not able to maintain previous arrangement 
+		Problems:
+			Still unable to get PI working with either Raspberium or ubuntu core
+			ubuntu core booting but unable to login and reached out to ubuntu for tech support
+			Literally zero help
+
+Known bugs:
+Line 9
+	APA102 (ledCount  spiBus  batchMode  csn )
+	APA102(72, SPIBUS, True)
+	Unsure what to do about "spibus"
+	
+What I learned:
+During the course of this project I actually learned a lot. I had perviously never worked with any sort of
+	device like a raspberry pi. My dad had an Arduino but it was difficult to use and didn't really do a
+	whole lot. I learned about how to install operating systems and debug installations. I got a crash
+	course with handeling dependencies. Although i could not actuall get it to install I learned a lot
+	about finding and manually installing dependencies based on documentation. Something previous to 
+	now that I have not had to do. I also learned a lot about "embeded hardware" at least that is what
+	I think its called. I did research about raspberry pi but also the LED strip and MRAA and its development.
+	I worked on learning how to do priorities in python so that the correct color LEDs will be displayed.
+	In the end it was most efficient in my opinion to handle them with a simple check all if-else if statement.
+	
+To conclude I had never worked on an actual hardware system before. Prior to this project I had also worked in virtual
+	or managed environments so this gave me a crash course on what its like to develope in an environment 
+	that isn't just set up and ready to work and you have to learn and read and adapt to the project as 
+	you learn more information.
+	
+
+
+Resources:
+https://github.com/intel-iot-devkit/mraa
+https://www.ics.com/blog/getting-started-mraa-raspberry-pi
+https://learn.sparkfun.com/tutorials/raspberry-gpio/gpio-pinout
+https://docs.labs.mediatek.com/resource/linkit-smart-7688/en/tutorials/peripheral-support-on-linkit-smart-7688-development-board/using-mraa-in-python
+https://iotdk.intel.com/docs/master/upm/node/classes/apa102.html
+https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
+https://communities.intel.com/thread/110359
+https://iotdk.intel.com/docs/master/mraa/building.html
